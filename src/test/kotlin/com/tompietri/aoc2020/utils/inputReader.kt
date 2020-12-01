@@ -17,3 +17,7 @@ fun readInputWithMultipleLines(dayNumber: Int): List<String> {
 fun readSingleNumberInput(dayNumber: Int): Int {
     return readInputWithSingleLine(dayNumber).toInt()
 }
+
+fun readMultipleNumberInput(dayNumber: Int): List<Int> {
+    return readInputWithMultipleLines(dayNumber).map { it.toInt() }
+}
