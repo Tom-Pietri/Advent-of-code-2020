@@ -16,15 +16,18 @@ fun day2SecondSolution(input: List<String>) : Int {
 }
 
 fun transformInputToPasswordWithPolicies(input: List<String>): List<PasswordWithPolicy> {
+    val regex = Regex("(\\d*)-(\\d*) (.): (.*)")
     return input.map {
-        val (policy, password) = it.split(":")
-        val (policyCounts, letter) = policy.split(" ")
-        PasswordWithPolicy(policy = Policy(
-                minCount = policyCounts.split("-")[0].toInt(),
-                maxCount = policyCounts.split("-")[1].toInt(),
-                letter = letter[0]
-        ), password = password.trim())
+        val regexMatches = regex.find(it)!!.groupValues
+        PasswordWithPolicy(
+                Policy(
+                        minCount = regexMatches[1].toInt(),
+                        maxCount = regexMatches[2].toInt(),
+                        letter = regexMatches[3][0]
+                ), password = regexMatches[4]
+        )
     }
 }
+
 data class PasswordWithPolicy(val policy: Policy, val password: String)
 data class Policy(val minCount: Int, val maxCount: Int, val letter: Char)
