@@ -1,18 +1,17 @@
 package com.tompietri.aoc2020.day4
 
 fun day4FirstSolution(input: List<String>): Int {
-    val passports = input.toPassports()
-    return passports.filter { passport ->
-        PassportField.requiredValues.all { passport[it] != null }
-    }.count()
+    return input.toPassports()
+        .filter { passport ->
+            PassportField.requiredValues.all { passport[it] != null }
+        }.count()
 }
 
-fun day4SecondSolution(input: List<String>): Int {
-    val passports = input.toPassports()
-    return passports
-            .filter { passport -> PassportField.requiredValues.all { passport[it] != null } }
-            .filter { passport -> PassportField.requiredValues.all { it.isValidForPassport(passport) } }
-            .count()
+fun day4SecondSolution(input: List<String>): Int  {
+    return input.toPassports()
+        .filter { passport -> PassportField.requiredValues.all { passport[it] != null } }
+        .filter { passport -> PassportField.requiredValues.all { it.isValidForPassport(passport) } }
+        .count()
 }
 
 fun List<String>.toPassports(): List<Passport> {
