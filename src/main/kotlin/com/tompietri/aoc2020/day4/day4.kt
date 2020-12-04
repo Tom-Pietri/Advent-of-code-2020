@@ -26,7 +26,7 @@ fun List<String>.toPassports(): List<Passport> {
         } else {
             val newFileds = line.split(" ")
                     .map { it.split(":") }
-                    .map { PassportField.valueOf(it[0]) to it[1] }
+                    .map { PassportField.acronymToEntry[it[0]]!! to it[1] }
                     .toMap()
             currentFields.putAll(newFileds)
         }
@@ -38,19 +38,19 @@ fun List<String>.toPassports(): List<Passport> {
 }
 
 data class Passport(val fields: Map<PassportField, String>)
-enum class PassportField(val required: Boolean) {
-    byr(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[byr]?.toInt()?.let { it in 1920..2002 } ?: !required
+enum class PassportField(val acronym: String, val required: Boolean) {
+    BIRTH_YEAR("byr", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[BIRTH_YEAR]?.toInt()?.let { it in 1920..2002 } ?: !required
     },
-    iyr(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[iyr]?.toInt()?.let { it in 2010..2020 } ?: !required
+    ISSUE_YEAR("iyr", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[ISSUE_YEAR]?.toInt()?.let { it in 2010..2020 } ?: !required
     },
-    eyr(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[eyr]?.toInt()?.let { it in 2020..2030 } ?: !required
+    EXPIRATION_YEAR("eyr", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[EXPIRATION_YEAR]?.toInt()?.let { it in 2020..2030 } ?: !required
     },
-    hgt(true) {
+    HEIGHT("hgt", true) {
         override fun isValidForPassport(passport: Passport): Boolean {
-            return passport.fields[hgt]!!.let { field ->
+            return passport.fields[HEIGHT]!!.let { field ->
                 heightFormat.find(field)?.groupValues?.let { (_, height, unit) ->
                     when (unit) {
                         "cm" -> height.toInt() in 150..193
@@ -61,17 +61,17 @@ enum class PassportField(val required: Boolean) {
             }
         }
     },
-    hcl(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[hcl]?.matches(hairColorFormat) ?: !required
+    HAIR_COLOR("hcl", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[HAIR_COLOR]?.matches(hairColorFormat) ?: !required
     },
-    ecl(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[ecl]?.matches(eyeColorFormat) ?: !required
+    EYE_COLOR("ecl", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[EYE_COLOR]?.matches(eyeColorFormat) ?: !required
     },
-    pid(true) {
-        override fun isValidForPassport(passport: Passport) = passport.fields[pid]?.matches(passportIdFormat) ?: !required
+    PASSPORT_ID("pid", true) {
+        override fun isValidForPassport(passport: Passport) = passport.fields[PASSPORT_ID]?.matches(passportIdFormat) ?: !required
     },
-    cid(false) {
-        override fun isValidForPassport(passport: Passport) = !required
+    COUNTRY_ID("cid", false) {
+        override fun isValidForPassport(passport: Passport) = passport.fields.containsKey(COUNTRY_ID) || !required
     };
 
 
@@ -79,6 +79,8 @@ enum class PassportField(val required: Boolean) {
 
     companion object {
         val requiredValues = values().filter { it.required }
+        val acronymToEntry = values().map { it.acronym to it }.toMap()
+
         private val heightFormat = Regex("(\\d+)(cm|in)")
         private val hairColorFormat = Regex("^#(\\d|[a-f]){6}$")
         private val eyeColorFormat = Regex("^(amb|blu|brn|gry|grn|hzl|oth)$")
