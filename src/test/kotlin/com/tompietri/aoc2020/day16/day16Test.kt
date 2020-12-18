@@ -5,6 +5,7 @@ import com.tompietri.aoc2020.utils.readInputWithMultipleLines
 import com.tompietri.aoc2020.utils.readInputWithSingleLine
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import java.math.BigInteger
 
 class day16Test {
 
@@ -34,27 +35,9 @@ class day16Test {
     }
 
     @Test
-    fun `second solution test data should return `() {
-        var input = listOf(
-            "class: 0-1 or 4-19",
-            "row: 0-5 or 8-19",
-            "seat: 0-13 or 16-19",
-            "",
-            "your ticket:",
-            "11,12,13",
-            "",
-            "nearby tickets:",
-            "3,9,18",
-            "15,1,5",
-            "5,14,9",
-        )
-        assertThat(day16SecondSolution(input)).isEqualTo(323780)
-    }
-
-    @Test
     fun `second solution should return 323780`() {
         var input = readInputWithMultipleLines(16)
-        assertThat(day16SecondSolution(input)).isEqualTo(323780)
+        assertThat(day16SecondSolution(input)).isEqualTo(BigInteger("650080463519"))
     }
 
 }
