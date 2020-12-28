@@ -22,7 +22,13 @@ private fun inputToMovements(input: List<String>): List<Movement> {
 }
 
 fun day12SecondSolution(input: List<String>): Int {
-    return 0
+    val movements = inputToMovements(input)
+
+    val finalShip = movements.fold(Ship2(0, 0, -1, 10)) { acc, movement ->
+        acc.move(movement)
+    }
+
+    return finalShip.x.absoluteValue + finalShip.y.absoluteValue
 }
 
 data class Movement(val action: String, val value: Int)
@@ -55,6 +61,57 @@ enum class Direction(val xChange: Int, val yChange: Int, val index: Int) {
         fun directionAfterTurning(direction: Direction, nbAngleChange: Int): Direction {
             val newIndex = ((direction.index + (nbAngleChange / 90)) + 4) % 4
             return values().find { it.index == newIndex }!!
+        }
+    }
+}
+
+data class Ship2(val x: Int, val y: Int, val waypointX: Int, val waypointY: Int) {
+    fun move(movement: Movement): Ship2 {
+        return when (movement.action) {
+            "N" -> this.copy(
+                waypointX = waypointX + NORTH.xChange * movement.value,
+                waypointY = waypointY + NORTH.yChange * movement.value
+            )
+            "S" -> this.copy(
+                waypointX = waypointX + SOUTH.xChange * movement.value,
+                waypointY = waypointY + SOUTH.yChange * movement.value
+            )
+            "E" -> this.copy(
+                waypointX = waypointX + EAST.xChange * movement.value,
+                waypointY = waypointY + EAST.yChange * movement.value
+            )
+            "W" -> this.copy(
+                waypointX = waypointX + WEST.xChange * movement.value,
+                waypointY = waypointY + WEST.yChange * movement.value
+            )
+
+            "L" -> {
+                val nbTurns = movement.value / 90
+                var currentValue = this.copy()
+                repeat(nbTurns) {
+                    currentValue = currentValue
+                        .copy(
+                            waypointX = -currentValue.waypointY,
+                            waypointY = currentValue.waypointX
+                        )
+                }
+                currentValue
+            }
+            "R" -> {
+                val nbTurns = movement.value / 90
+                var currentValue = this.copy()
+                repeat(nbTurns) {
+                    currentValue = currentValue
+                        .copy(
+                            waypointX = currentValue.waypointY,
+                            waypointY = -currentValue.waypointX
+                        )
+                }
+                currentValue
+            }
+            "F" -> this.copy(x = x + waypointX * movement.value, y = y + waypointY * movement.value)
+
+            else -> error("We should only have theses actions")
         }
     }
 }

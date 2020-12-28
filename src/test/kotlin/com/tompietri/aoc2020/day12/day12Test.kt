@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
 
-class day12Test {
+class Day12Test {
     @Test
     fun `Ship turning from EAST`() {
         val turningAndExpected = listOf(
@@ -42,26 +42,34 @@ class day12Test {
 
     @Test
     fun `first solution data set should return 1766`() {
-        var input = listOf(
+        assertThat(day12FirstSolution(testInput)).isEqualTo(25)
+    }
+
+    @Test
+    fun `first solution should return 1766`() {
+        val input = readInputWithMultipleLines(12)
+        assertThat(day12FirstSolution(input)).isEqualTo(845)
+    }
+
+    @Test
+    fun `second solution data set return 286`() {
+        assertThat(day12SecondSolution(testInput)).isEqualTo(286)
+    }
+
+    @Test
+    fun `second solution should return 27016`() {
+        val input = readInputWithMultipleLines(12)
+        assertThat(day12SecondSolution(input)).isEqualTo(27016)
+    }
+
+    companion object {
+        val testInput = listOf(
             "F10",
             "N3",
             "F7",
             "R90",
             "F11"
         )
-        assertThat(day12FirstSolution(input)).isEqualTo(25)
-    }
-
-    @Test
-    fun `first solution should return 1766`() {
-        var input = readInputWithMultipleLines(12)
-        assertThat(day12FirstSolution(input)).isEqualTo(845)
-    }
-
-    @Test
-    fun `second solution should return 16312`() {
-        var input = readInputWithMultipleLines(12)
-        assertThat(day12SecondSolution(input)).isEqualTo(2019)
     }
 
 }
