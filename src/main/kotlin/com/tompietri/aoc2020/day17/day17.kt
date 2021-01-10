@@ -142,5 +142,7 @@ fun day17SecondSolution(input: List<String>): Int {
 }
 
 
-data class Point3D(val x: Int, val y: Int, val z: Int)
 data class Point4D(val x: Int, val y: Int, val z: Int, val w: Int)
+
+
+data class Point3D(val x: Int, val y: Int, val z: Int)
