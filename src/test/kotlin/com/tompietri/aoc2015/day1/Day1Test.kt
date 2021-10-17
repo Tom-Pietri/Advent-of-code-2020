@@ -1,4 +1,4 @@
-package com.tompietri.aoc2020.day1
+package com.tompietri.aoc2015.day1
 
 import com.tompietri.aoc2020.utils.readMultipleNumberInput
 import day1FirstSolution

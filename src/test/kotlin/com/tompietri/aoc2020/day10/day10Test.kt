@@ -9,13 +9,13 @@ import java.math.BigInteger
 class day10Test {
     @Test
     fun `first solution should return 1766`() {
-        var input = readMultipleNumberInput(10)
+        var input = readMultipleNumberInput(2020, 10)
         assertThat(day10FirstSolution(input)).isEqualTo(2484)
     }
 
     @Test
     fun `second solution should return 16310`() {
-        var input = readMultipleNumberInput(10)
+        var input = readMultipleNumberInput(2020, 10)
         assertThat(day10SecondSolution(input)).isEqualTo(BigInteger("15790581481472"))
     }
 

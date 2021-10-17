@@ -15,7 +15,7 @@ class Day20Test {
 
     @Test
     fun `first solution should return 353`() {
-        val input = readInputWithMultipleLines(20)
+        val input = readInputWithMultipleLines(2020, 20)
         assertThat(day20FirstSolution(input)).isEqualTo(BigInteger("45079100979683"))
     }
 
@@ -27,7 +27,7 @@ class Day20Test {
 
     @Test
     fun `second solution should return 2472`() {
-        val input = readInputWithMultipleLines(20)
+        val input = readInputWithMultipleLines(2020, 20)
         assertThat(day20SecondSolution(input)).isEqualTo(316)
     }
 

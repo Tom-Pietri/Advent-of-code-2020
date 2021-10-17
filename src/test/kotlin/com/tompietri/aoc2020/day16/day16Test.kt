@@ -2,7 +2,6 @@ package com.tompietri.aoc2020.day16
 
 
 import com.tompietri.aoc2020.utils.readInputWithMultipleLines
-import com.tompietri.aoc2020.utils.readInputWithSingleLine
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
@@ -30,13 +29,13 @@ class day16Test {
 
     @Test
     fun `first solution should return 13727901897109`() {
-        var input = readInputWithMultipleLines(16)
+        var input = readInputWithMultipleLines(2020, 16)
         assertThat(day16FirstSolution(input)).isEqualTo(376)
     }
 
     @Test
     fun `second solution should return 323780`() {
-        var input = readInputWithMultipleLines(16)
+        var input = readInputWithMultipleLines(2020, 16)
         assertThat(day16SecondSolution(input)).isEqualTo(BigInteger("650080463519"))
     }
 

@@ -2,7 +2,6 @@ package com.tompietri.aoc2020.day5
 
 
 import com.tompietri.aoc2020.utils.readInputWithMultipleLines
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -26,13 +25,13 @@ class day5Test {
 
     @Test
     fun `first solution should return ???`() {
-        var input = readInputWithMultipleLines(5)
+        var input = readInputWithMultipleLines(2020, 5)
         assertThat(day5FirstSolution(input)).isEqualTo(989)
     }
 
     @Test
     fun `second solution should return ???`() {
-    var input = readInputWithMultipleLines(5)
+    var input = readInputWithMultipleLines(2020, 5)
         assertThat(day5SecondSolution(input)).isEqualTo(548)
     }
 

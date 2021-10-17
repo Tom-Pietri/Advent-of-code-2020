@@ -2,10 +2,8 @@ package com.tompietri.aoc2020.day12
 
 
 import com.tompietri.aoc2020.utils.readInputWithMultipleLines
-import com.tompietri.aoc2020.utils.readMultipleNumberInput
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import java.math.BigInteger
 
 class Day12Test {
     @Test
@@ -47,7 +45,7 @@ class Day12Test {
 
     @Test
     fun `first solution should return 1766`() {
-        val input = readInputWithMultipleLines(12)
+        val input = readInputWithMultipleLines(2020, 12)
         assertThat(day12FirstSolution(input)).isEqualTo(845)
     }
 
@@ -58,7 +56,7 @@ class Day12Test {
 
     @Test
     fun `second solution should return 27016`() {
-        val input = readInputWithMultipleLines(12)
+        val input = readInputWithMultipleLines(2020, 12)
         assertThat(day12SecondSolution(input)).isEqualTo(27016)
     }
 

@@ -8,13 +8,13 @@ class Day2Test {
 
     @Test
     fun `first solution should return ???`() {
-        var input = readInputWithMultipleLines(2)
+        var input = readInputWithMultipleLines(2020, 2)
         Assertions.assertThat(day2FirstSolution(input)).isEqualTo(493)
     }
 
     @Test
     fun `second solution should return ???`() {
-        var input = readInputWithMultipleLines(2)
+        var input = readInputWithMultipleLines(2020, 2)
         Assertions.assertThat(day2SecondSolution(input)).isEqualTo(593)
     }
 }

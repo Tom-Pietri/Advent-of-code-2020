@@ -2,7 +2,6 @@ package com.tompietri.aoc2020.day14
 
 
 import com.tompietri.aoc2020.utils.readInputWithMultipleLines
-import com.tompietri.aoc2020.utils.readMultipleNumberInput
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.math.BigInteger
@@ -22,7 +21,7 @@ class day14Test {
 
     @Test
     fun `first solution should return 13727901897109`() {
-        var input = readInputWithMultipleLines(14)
+        var input = readInputWithMultipleLines(2020, 14)
         assertThat(day14FirstSolution(input)).isEqualTo(BigInteger("13727901897109"))
     }
 
@@ -40,7 +39,7 @@ class day14Test {
 
     @Test
     fun `second solution should return 16314`() {
-        var input = readInputWithMultipleLines(14)
+        var input = readInputWithMultipleLines(2020, 14)
         assertThat(day14SecondSolution(input)).isEqualTo(BigInteger("5579916171823"))
     }
 

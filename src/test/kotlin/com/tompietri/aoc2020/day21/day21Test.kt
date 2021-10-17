@@ -20,7 +20,7 @@ class Day21Test {
 
     @Test
     fun `first solution should return 2307`() {
-        val input = readInputWithMultipleLines(21)
+        val input = readInputWithMultipleLines(2020, 21)
         assertThat(day21FirstSolution(input)).isEqualTo(2307)
     }
 
@@ -31,7 +31,7 @@ class Day21Test {
 
     @Test
     fun `second solution should return 2472`() {
-        val input = readInputWithMultipleLines(21)
+        val input = readInputWithMultipleLines(2020, 21)
         assertThat(day21SecondSolution(input)).isEqualTo("cljf,frtfg,vvfjj,qmrps,hvnkk,qnvx,cpxmpc,qsjszn")
     }
 

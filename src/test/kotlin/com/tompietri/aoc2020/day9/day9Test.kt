@@ -38,13 +38,13 @@ class day9Test {
 
     @Test
     fun `first solution should return 1766`() {
-        var input = readInputWithMultipleLines(9)
+        var input = readInputWithMultipleLines(2020, 9)
         assertThat(day9FirstSolution(input)).isEqualTo(BigInteger("15353384"))
     }
 
     @Test
     fun `second solution should return 1639`() {
-        var input = readInputWithMultipleLines(9)
+        var input = readInputWithMultipleLines(2020, 9)
         assertThat(day9SecondSolution(input)).isEqualTo(BigInteger("2466556"))
     }
 

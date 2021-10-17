@@ -16,7 +16,7 @@ class day15Test {
 
     @Test
     fun `first solution should return 13727901897109`() {
-        var input = readInputWithSingleLine(15)
+        var input = readInputWithSingleLine(2020, 15)
         assertThat(day15FirstSolution(input)).isEqualTo(376)
     }
 
@@ -28,7 +28,7 @@ class day15Test {
 
     @Test
     fun `second solution should return 323780`() {
-        var input = readInputWithSingleLine(15)
+        var input = readInputWithSingleLine(2020, 15)
         assertThat(day15SecondSolution(input)).isEqualTo(323780)
     }
 
