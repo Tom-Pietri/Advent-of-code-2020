@@ -1,3 +1,4 @@
+package com.tompietri.aoc2020.day1
 
 fun day1FirstSolution(input: List<Int>): Int {
     for(i in 0 until input.size - 1) {

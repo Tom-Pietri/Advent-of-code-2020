@@ -1,4 +1,4 @@
-package com.tompietri.aoc2020.utils
+package com.tompietri.utils
 
 import java.io.File
 

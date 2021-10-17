@@ -1,7 +1,7 @@
 package com.tompietri.aoc2020.day4
 
 
-import com.tompietri.aoc2020.utils.readInputWithMultipleLines
+import com.tompietri.utils.readInputWithMultipleLines
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 

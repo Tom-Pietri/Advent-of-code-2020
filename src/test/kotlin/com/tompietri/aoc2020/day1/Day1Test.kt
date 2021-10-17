@@ -1,8 +1,8 @@
 package com.tompietri.aoc2020.day1
 
-import com.tompietri.aoc2020.utils.readMultipleNumberInput
-import day1FirstSolution
-import day1SecondSolution
+import com.tompietri.utils.readMultipleNumberInput
+import com.tompietri.aoc2015.day1.day1FirstSolution
+import com.tompietri.aoc2015.day1.day1SecondSolution
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

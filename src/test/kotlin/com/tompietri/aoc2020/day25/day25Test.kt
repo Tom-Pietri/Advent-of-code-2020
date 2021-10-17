@@ -1,6 +1,6 @@
 package com.tompietri.aoc2020.day25
 
-import com.tompietri.aoc2020.utils.readMultipleNumberInput
+import com.tompietri.utils.readMultipleNumberInput
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.math.BigInteger

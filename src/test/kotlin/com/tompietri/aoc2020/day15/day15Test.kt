@@ -1,7 +1,7 @@
 package com.tompietri.aoc2020.day15
 
 
-import com.tompietri.aoc2020.utils.readInputWithSingleLine
+import com.tompietri.utils.readInputWithSingleLine
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
