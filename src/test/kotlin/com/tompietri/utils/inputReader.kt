@@ -21,3 +21,7 @@ fun readSingleNumberInput(year: Int, dayNumber: Int): Int {
 fun readMultipleNumberInput(year: Int, dayNumber: Int): List<Int> {
     return readInputWithMultipleLines(year, dayNumber).map { it.toInt() }
 }
+
+fun readMultipleNumberInputSingleLine(year: Int, dayNumber: Int, delimiter: String = ","): List<Int> {
+    return readInputWithSingleLine(year, dayNumber).split(delimiter).map { it.toInt() }
+}

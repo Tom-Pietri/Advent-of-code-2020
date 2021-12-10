@@ -1,5 +1,6 @@
 package com.tompietri.aoc2020.day20
 
+import com.tompietri.tools.data.Point2D
 import java.math.BigInteger
 
 fun day20FirstSolution(input: List<String>): BigInteger {
@@ -220,22 +221,6 @@ data class Grid(val id: Int, val lines: List<List<Char>>) {
         lines = this.lines.drop(1).dropLast(1).map { it.drop(1).dropLast(1) }
     )
 
-}
-
-data class Point2D(val x: Int, val y: Int) : Comparable<Point2D> {
-    override fun compareTo(other: Point2D): Int {
-        if(this.y == other.y) {
-            if (this.x < other.x) {
-                return -1
-            } else {
-                return 1
-            }
-        } else if (this.y < other.y) {
-            return -1
-        } else {
-            return 1
-        }
-    }
 }
 
 enum class Side {
